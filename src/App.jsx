@@ -3,7 +3,7 @@ import Header from './components/Header';
 import SystemTray from './components/SystemTray';
 import CommandCenter from './components/CommandCenter';
 import EvolutionScreen from './components/EvolutionScreen'; // Import EvolutionScreen
-import { saveApiKey, getApiKey, deleteApiKey, sanitizeInput } from './keyManager';
+import { saveApiKey, getApiKey, saveLlmBaseUrl, getLlmBaseUrl, clearAllLlmSettings, sanitizeInput } from './keyManager';
 import db from './db';
 import './App.css';
 
@@ -22,7 +22,7 @@ function App() {
     if (storedApiKey) {
       setApiKey(storedApiKey);
     }
-    const storedLlmBaseUrl = localStorage.getItem('llmBaseUrl');
+    const storedLlmBaseUrl = getLlmBaseUrl(); // Use new getLlmBaseUrl
     if (storedLlmBaseUrl) {
       setLlmBaseUrl(storedLlmBaseUrl);
     }
@@ -31,7 +31,6 @@ function App() {
     const loadProjectFromDb = async () => {
       const goals = await db.goals.toArray();
       if (goals.length > 0) {
-        // For now, load the first goal. If multiple goals are supported, this logic needs refinement.
         const primaryGoal = goals[0];
         const milestones = await db.milestones.where({ goalId: primaryGoal.id }).toArray();
         const loadedProjectData = {
@@ -60,28 +59,16 @@ function App() {
   const handleLlmBaseUrlChange = (e) => {
     const newUrl = sanitizeInput(e.target.value);
     setLlmBaseUrl(newUrl);
-    localStorage.setItem('llmBaseUrl', newUrl);
+    saveLlmBaseUrl(newUrl); // Use new saveLlmBaseUrl
   };
 
   const handleGoalChange = (setter) => (e) => setter(sanitizeInput(e.target.value));
 
   const handleDeleteAllData = async () => {
     if (window.confirm("Are you sure you want to delete all data, including your API Key and all goals/milestones? This cannot be undone.")) {
-      deleteApiKey();
-      setApiKey(''); // Clear API key from state
-      localStorage.removeItem('llmBaseUrl'); // Clear LLM Base URL from localStorage
-      setLlmBaseUrl(''); // Clear LLM Base URL from state
-
-      // Clear Dexie.js database
-      await db.goals.clear();
-      await db.milestones.clear();
-      await db.logs.clear();
-      setProjectData(null); // Clear project data from state
-      setCurrentScreen('gateway'); // Go back to gateway screen
-
-      alert("All data has been deleted.");
-    }
-  };
+      clearAllLlmSettings(); // Use new clearAllLlmSettings
+      setApiKey('');
+      setLlmBaseUrl('');
 
   const updateMilestoneStatus = async (updatedMilestone) => {
     try {
