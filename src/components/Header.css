@@ -1,0 +1,36 @@
+/* src/components/Header.css */
+.app-header {
+  background-color: #0d0d1a; /* Darker background, similar to command-center */
+  padding: 15px 20px;
+  border-bottom: 2px solid #0ff; /* Neon Cyan border */
+  box-shadow: 0 0 15px #0ff; /* Neon glow */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Share Tech Mono', monospace;
+  color: #0ff; /* Neon Cyan */
+}
+
+.header-title {
+  margin: 0;
+  font-size: 1.8em;
+  color: #f0f; /* Neon Magenta */
+  text-shadow: 0 0 8px #f0f, 0 0 12px rgba(240, 0, 240, 0.7);
+  letter-spacing: 2px;
+  animation: neonFlickerHeader 5s infinite alternate ease-in-out; /* Subtle flicker */
+}
+
+@keyframes neonFlickerHeader {
+  0%, 100% { text-shadow: 0 0 8px #f0f, 0 0 12px rgba(240, 0, 240, 0.7); opacity: 1; }
+  10% { text-shadow: none; opacity: 0.9; }
+  20% { text-shadow: 0 0 8px #f0f, 0 0 12px rgba(240, 0, 240, 0.7); opacity: 1; }
+  30% { text-shadow: none; opacity: 0.95; }
+  /* More subtle flickers */
+  70% { opacity: 0.98; }
+  75% { opacity: 0.96; }
+  80% { opacity: 0.99; }
+}
+
+.header-nav {
+  /* Future navigation links */
+}
