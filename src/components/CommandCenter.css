@@ -1,0 +1,50 @@
+/* src/components/CommandCenter.css */
+.command-center {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 80px); /* Adjust based on Header height */
+  padding: 20px;
+  background-color: #0d0d1a; /* Darker background */
+  color: #0ff; /* Neon Cyan */
+  font-family: 'Share Tech Mono', monospace;
+  box-sizing: border-box;
+}
+
+.tab-navigation {
+  display: flex;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #0ff;
+  padding-bottom: 5px;
+}
+
+.tab-button {
+  background-color: transparent;
+  border: none;
+  color: #888; /* Muted color for inactive */
+  font-size: 1.1em;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  outline: none;
+}
+
+.tab-button:hover {
+  color: #0ff; /* Neon Cyan on hover */
+  text-shadow: 0 0 8px #0ff;
+}
+
+.tab-button.active {
+  color: #0ff; /* Active Neon Cyan */
+  text-shadow: 0 0 10px #0ff, 0 0 15px rgba(0, 255, 255, 0.7);
+  font-weight: bold;
+}
+
+.tab-content {
+  flex-grow: 1;
+  background-color: rgba(0, 0, 0, 0.5); /* Slightly transparent background for content */
+  border: 1px solid #f0f; /* Neon Magenta border */
+  box-shadow: 0 0 10px #f0f;
+  padding: 20px;
+  overflow-y: auto; /* Enable scrolling for content */
+  border-radius: 8px;
+}

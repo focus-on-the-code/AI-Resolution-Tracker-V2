@@ -1,0 +1,183 @@
+/* src/components/EvolutionScreen.css */
+.evolution-screen {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 80px); /* Adjust based on Header height */
+  padding: 20px;
+  background-color: #0d0d1a; /* Darker background */
+  color: #0ff; /* Neon Cyan */
+  font-family: 'Share Tech Mono', monospace;
+  box-sizing: border-box;
+}
+
+.evolution-screen h1 {
+  color: #f0f; /* Neon Magenta */
+  text-shadow: 0 0 10px #f0f;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.evolution-screen .back-button {
+  background-color: transparent;
+  border: 1px solid #0f0; /* Neon Green */
+  color: #0f0;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.9em;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 8px rgba(0, 255, 0, 0.5);
+  align-self: flex-start; /* Align to the start of the flex container */
+  margin-bottom: 15px;
+}
+
+.evolution-screen .back-button:hover {
+  background-color: #0f0;
+  color: #000;
+  box-shadow: 0 0 12px #0f0;
+}
+
+.evolution-content {
+  display: flex;
+  flex-grow: 1;
+  gap: 20px;
+}
+
+.completed-milestones-area,
+.vibe-analyst-chat {
+  flex: 1;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 1px solid #0ff;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.completed-milestones-area h2,
+.vibe-analyst-chat h2 {
+  color: #0f0; /* Neon Green */
+  text-shadow: 0 0 6px #0f0;
+  margin-top: 0;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.completed-milestones-area ul {
+  list-style: none;
+  padding: 0;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.completed-milestones-area li {
+  background-color: rgba(0, 255, 0, 0.1); /* Light green transparent */
+  border-left: 3px solid #0f0;
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  box-shadow: 0 0 5px rgba(0, 255, 0, 0.3);
+  color: #0f0;
+}
+
+/* Vibe Analyst Chat Styling - Similar to GoalTab chat */
+.vibe-analyst-chat .chat-history {
+  flex-grow: 1;
+  overflow-y: auto;
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.vibe-analyst-chat .chat-message {
+  margin-bottom: 8px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.vibe-analyst-chat .chat-message.user {
+  background-color: rgba(0, 255, 255, 0.2);
+  text-align: right;
+  margin-left: 20%;
+}
+
+.vibe-analyst-chat .chat-message.ai {
+  background-color: rgba(240, 0, 240, 0.2);
+  margin-right: 20%;
+}
+
+.vibe-analyst-chat .chat-message strong {
+  color: #0f0;
+}
+
+.vibe-analyst-chat .chat-input-area {
+  display: flex;
+  gap: 5px;
+}
+
+.vibe-analyst-chat .chat-input-area input {
+  flex-grow: 1;
+  padding: 8px;
+  border: 1px solid #0ff;
+  border-radius: 5px;
+  background-color: #000;
+  color: #0ff;
+  font-family: 'Share Tech Mono', monospace;
+  outline: none;
+  box-shadow: 0 0 5px #0ff;
+}
+
+.vibe-analyst-chat .chat-input-area input:focus {
+  box-shadow: 0 0 8px #0ff, 0 0 12px rgba(0, 255, 255, 0.5);
+}
+
+.vibe-analyst-chat .chat-input-area button {
+  background-color: #f0f;
+  color: #000;
+  border: 1px solid #f0f;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Share Tech Mono', monospace;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 8px #f0f;
+}
+
+.vibe-analyst-chat .chat-input-area button:hover {
+  background-color: #0ff;
+  color: #000;
+  box-shadow: 0 0 12px #0ff;
+}
+
+.vibe-meter {
+  text-align: center;
+  margin-top: 20px;
+  padding: 15px;
+  border: 2px solid #0f0; /* Default vibe color */
+  border-radius: 10px;
+  box-shadow: 0 0 15px #0f0, 0 0 20px rgba(0, 255, 0, 0.5);
+  font-size: 1.2em;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.7);
+  transition: all 0.5s ease-in-out; /* Smooth transition for color changes */
+}
+
+/* Example Vibe Meter Colors */
+.vibe-meter.positive {
+  border-color: #0f0;
+  box-shadow: 0 0 15px #0f0, 0 0 20px rgba(0, 255, 0, 0.5);
+}
+
+.vibe-meter.neutral {
+  border-color: #0ff;
+  box-shadow: 0 0 15px #0ff, 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+.vibe-meter.negative {
+  border-color: #f00; /* Neon Red */
+  box-shadow: 0 0 15px #f00, 0 0 20px rgba(255, 0, 0, 0.5);
+}

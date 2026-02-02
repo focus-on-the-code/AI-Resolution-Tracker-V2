@@ -1,0 +1,180 @@
+/* src/App.css */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #01010a; /* Dark background */
+  color: #0ff; /* Neon Cyan default text color */
+  font-family: 'Share Tech Mono', monospace;
+  overflow: hidden; /* Prevent scrollbars from showing up on body */
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* Base styles for buttons and inputs - can be overridden by specific components */
+button {
+  cursor: pointer;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-family: 'Share Tech Mono', monospace;
+  transition: all 0.3s ease;
+  background-color: #f0f; /* Neon Magenta */
+  color: #000;
+  box-shadow: 0 0 8px #f0f;
+}
+
+button:hover:not(:disabled) {
+  background-color: #0ff; /* Neon Cyan */
+  box-shadow: 0 0 12px #0ff;
+  color: #000;
+}
+
+button:disabled {
+  background-color: #333;
+  color: #666;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+input[type="text"],
+input[type="password"] {
+  background-color: #000;
+  border: 1px solid #0ff;
+  color: #0ff;
+  padding: 8px;
+  border-radius: 5px;
+  font-family: 'Share Tech Mono', monospace;
+  outline: none;
+  box-shadow: 0 0 5px #0ff;
+  transition: box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  box-shadow: 0 0 8px #0ff, 0 0 12px rgba(0, 255, 255, 0.5);
+}
+
+/* Neon Flickering Animation */
+@keyframes neonFlicker {
+  0%, 100% { text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff; opacity: 1; }
+  5% { text-shadow: none; opacity: 0.8; }
+  10% { text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff; opacity: 1; }
+  15% { text-shadow: none; opacity: 0.9; }
+  20% { text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff; opacity: 1; }
+  25% { text-shadow: none; opacity: 0.85; }
+  30% { text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff; opacity: 1; }
+  /* More subtle flickers */
+  70% { opacity: 0.95; }
+  72% { opacity: 0.98; }
+  74% { opacity: 0.96; }
+  76% { opacity: 0.99; }
+  /* Ensure it ends on full brightness */
+}
+
+.flicker {
+  animation: neonFlicker 3s infinite alternate ease-in-out;
+}
+
+
+/* Specific styles for App.jsx main content */
+.gateway-screen {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.gateway-screen h1 {
+  font-size: 3em;
+  color: #0f0; /* Neon Green */
+  text-shadow: 0 0 10px #0f0, 0 0 20px rgba(0, 255, 0, 0.7);
+  margin-bottom: 40px;
+}
+
+.api-key-input,
+.vision-input {
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 1px solid #f0f; /* Neon Magenta */
+  box-shadow: 0 0 15px #f0f;
+  padding: 30px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  width: 80%;
+  max-width: 500px;
+}
+
+.api-key-input label,
+.vision-input h2 {
+  color: #0ff; /* Neon Cyan */
+  text-shadow: 0 0 8px #0ff;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.api-key-input input,
+.vision-input input {
+  width: calc(100% - 20px);
+  margin-bottom: 15px;
+}
+
+.key-status {
+  font-size: 0.9em;
+  color: #888;
+  margin-top: -5px;
+  margin-bottom: 15px;
+}
+
+.vision-input button {
+  margin-top: 20px;
+}
+
+.llm-response-display {
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 1px solid #0f0; /* Neon Green */
+  box-shadow: 0 0 15px #0f0;
+  padding: 30px;
+  border-radius: 10px;
+  margin-top: 20px;
+  width: 80%;
+  max-width: 500px;
+  text-align: left;
+}
+
+.llm-response-display h2 {
+  color: #f0f;
+  text-shadow: 0 0 8px #f0f;
+  margin-bottom: 10px;
+}
+
+.llm-response-display h3 {
+  color: #0ff;
+  text-shadow: 0 0 5px #0ff;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.llm-response-display ul {
+  list-style: none;
+  padding: 0;
+}
+
+.llm-response-display li {
+  background-color: rgba(0, 255, 255, 0.05);
+  border-left: 2px solid #0ff;
+  padding: 8px;
+  margin-bottom: 5px;
+  border-radius: 3px;
+}

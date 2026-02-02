@@ -1,0 +1,47 @@
+/* src/components/SystemTray.css */
+.system-tray {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border: 2px solid #0ff; /* Neon Cyan */
+  box-shadow: 0 0 15px #0ff, 0 0 20px rgba(0, 255, 255, 0.5);
+  padding: 15px 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: 'Share Tech Mono', monospace;
+  color: #0ff; /* Neon Cyan */
+  z-index: 1000;
+}
+
+.system-tray p {
+  margin: 0;
+  font-size: 0.9em;
+  text-shadow: 0 0 5px #0ff;
+}
+
+.system-tray .api-status-indicator {
+  font-weight: bold;
+}
+
+.system-tray .delete-data-button {
+  background-color: #f0f; /* Neon Magenta */
+  color: #000;
+  border: 1px solid #f0f;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 8px #f0f;
+}
+
+.system-tray .delete-data-button:hover {
+  background-color: #0ff; /* Neon Cyan */
+  color: #000;
+  box-shadow: 0 0 12px #0ff;
+}
